@@ -20,5 +20,6 @@ plt.legend()
 
 years_to_display = morocco.columns[::40]
 plt.xticks(years_to_display)
+plt.yticks([150, 300])
 
 plt.show()

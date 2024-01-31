@@ -1,5 +1,4 @@
 import sys
-import string
 
 
 def counting(arg):
@@ -15,7 +14,7 @@ def counting(arg):
             upper += 1
         elif element.islower():
             lower += 1
-        elif element in string.punctuation:
+        elif element in '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~':
             punctuation += 1
         elif element.isspace():
             space += 1
@@ -35,7 +34,7 @@ def building():
     arg = ''
 
     try:
-        assert len(sys.argv) > 2
+        assert len(sys.argv) <= 2
 
         if len(sys.argv) == 1:
             arg = input('What is the text to count?\n')
