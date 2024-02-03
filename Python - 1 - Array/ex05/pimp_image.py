@@ -36,5 +36,9 @@ def ft_grey(array):
     """
     Converts the image to grayscale using the NTSC formula.
     """
-    grayscale_image = 0.299 * array[:, :, 0] + 0.587 * array[:, :, 1] + 0.114 * array[:, :, 2]
+    grayscale_image = (
+        0.299 * array[:, :, 0]
+        + (0.587 * array[:, :, 1])
+        + (0.114 * array[:, :, 2])
+    )
     return grayscale_image

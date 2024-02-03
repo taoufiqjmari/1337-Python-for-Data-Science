@@ -7,7 +7,7 @@ def ft_load(path: str) -> np.ndarray:
     try:
         # Open the image file
         with Image.open(path) as img:
-            #Show image
+            # Show image
             # img.show()
 
             # Turn image to RGB then to a Numpy array

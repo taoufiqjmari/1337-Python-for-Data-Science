@@ -3,8 +3,7 @@ import numpy as np
 from load_image import ft_load
 
 
-# Transpose
-# 
+# Transpose:
 # 1 2 3      1 4 7
 # 4 5 6  ->  2 5 8
 # 7 8 9      3 6 9
@@ -14,7 +13,7 @@ def ft_transpose(arr):
     transposed_arr = np.empty((arr.shape[1], arr.shape[0]))
     for i in range(arr.shape[0]):
         for j in range(arr.shape[1]):
-            transposed_arr[j, i] = arr[i, j] # Copy elements swapping indices
+            transposed_arr[j, i] = arr[i, j]  # Copy elements swapping indices
     return transposed_arr
 
 
@@ -29,11 +28,13 @@ def zoom_image(path):
     # Slice the middle of the image
     new_height = grayscale_array.shape[0] // 3
     new_width = grayscale_array.shape[1] // 3
-    grayscale_sliced = grayscale_array[0 + new_height:new_height*2, 0 + new_width:new_width*2]
+    grayscale_sliced = grayscale_array[0 + new_height:new_height*2,
+                                       0 + new_width:new_width*2]
 
     # Reshape the np.ndarray for display
     new_shape = grayscale_sliced[:, :, np.newaxis]
-    print(f"New shape after slicing: {new_shape.shape} or ({new_shape.shape[0]}, {new_shape.shape[1]})")
+    print(f"New shape after slicing: {new_shape.shape}", end='')
+    print(f" or ({new_shape.shape[0]}, {new_shape.shape[1]})")
     print(new_shape)
 
     return grayscale_sliced

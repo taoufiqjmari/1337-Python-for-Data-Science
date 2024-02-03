@@ -2,6 +2,7 @@ from PIL import Image
 import numpy as np
 from load_image import ft_load
 
+
 def zoom_image(path):
     """Zoom then print and show the new image"""
     # Display original information of the image
@@ -14,7 +15,8 @@ def zoom_image(path):
     # Slice the middle of the image
     new_height = grayscale_array.shape[0] // 3
     new_width = grayscale_array.shape[1] // 3
-    grayscale_sliced = grayscale_array[0 + new_height:new_height*2, 0 + new_width:new_width*2]
+    grayscale_sliced = grayscale_array[0 + new_height:new_height*2,
+                                       0 + new_width:new_width*2]
 
     # It's necessary to get the new image here \
     # before reshaping the np.ndarray for display \
@@ -24,7 +26,8 @@ def zoom_image(path):
 
     # Reshape the np.ndarray for display
     grayscale_sliced = grayscale_sliced[:, :, np.newaxis]
-    print(f"New shape after slicing: {grayscale_sliced.shape} or ({grayscale_sliced.shape[0]}, {grayscale_sliced.shape[1]})")
+    print(f"New shape after slicing: {grayscale_sliced.shape}", end='')
+    print(f" or ({grayscale_sliced.shape[0]}, {grayscale_sliced.shape[1]})")
     print(grayscale_sliced)
 
 
