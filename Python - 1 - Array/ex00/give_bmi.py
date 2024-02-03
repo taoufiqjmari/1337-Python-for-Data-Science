@@ -1,57 +1,36 @@
-def is_list_of_numbers(input_list):
-    """
-    Check if a list is made up of only integers or floats.
-
-    :param input_list: Input list to check
-    :return: True if the list contains only integers or floats, False otherwise
-    """
-    for element in input_list:
-        if not isinstance(element, (int, float)):
-            return False
-    return True
-
-
-def calculate_bmi(height_m, weight_kg):
-    """
-    Calculate BMI (Body Mass Index).
-
-    :param weight_kg: Weight in kilograms
-    :param height_m: Height in meters
-    :return: BMI value
-    """
-    if weight_kg <= 0 or height_m <= 0:
-        raise ValueError("Weight and height must be positive numbers.")
-
-    bmi = weight_kg / (height_m ** 2)
-    return bmi
+import numpy as np
 
 
 def give_bmi(
         height: list[int | float],
         weight: list[int | float]
         ) -> list[int | float]:
-    result = []
-
+    """
+    Returns a list of BMI values from two lists
+    """
     try:
-        assert len(height) == len(weight)
-        assert is_list_of_numbers(height)
-        assert is_list_of_numbers(weight)
+        height_np_array = np.array(height)
+        weight_np_array = np.array(weight)
 
-        for i in range(len(height)):
-            result.append(calculate_bmi(height[i], weight[i]))
-        return result
+        assert np.issubdtype(height_np_array.dtype, np.number)
+        assert np.issubdtype(weight_np_array.dtype, np.number)
+        assert np.all(height_np_array > 0)
+        assert np.all(weight_np_array > 0)
+        assert height_np_array.shape == weight_np_array.shape
+
+        return list(weight_np_array / height_np_array**2)
     except AssertionError:
         print('AssertionError: the arguments are bad')
 
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
-    result = []
-
+    """
+    Check whether BMI values are above or below a limit
+    """
     try:
-        assert is_list_of_numbers(bmi)
+        bmi_np_array = np.array(bmi)
+        assert np.issubdtype(bmi_np_array.dtype, np.number)
 
-        for el in bmi:
-            result.append(el > limit)
-        return result
+        return bmi_np_array > limit
     except AssertionError:
         print('AssertionError: the arguments are bad')
