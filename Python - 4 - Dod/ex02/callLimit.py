@@ -4,6 +4,7 @@ def callLimit(limit: int):
     of how many time can a function be called
     """
     count = 0
+
     def callLimiter(function):
         """
         A wrapper to make a function run {limit} times only
