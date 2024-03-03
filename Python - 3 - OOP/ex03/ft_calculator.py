@@ -6,22 +6,22 @@ class calculator:
 
     def __add__(self, object) -> None:
         """Addition"""
-        result = [val + object for val in self.vector]
-        print(result)
+        self.vector = [val + object for val in self.vector]
+        print(self.vector)
 
     def __mul__(self, object) -> None:
         """Multiplication"""
-        result = [val * object for val in self.vector]
-        print(result)
+        self.vector = [val * object for val in self.vector]
+        print(self.vector)
 
     def __sub__(self, object) -> None:
         """Substraction"""
-        result = [val - object for val in self.vector]
-        print(result)
+        self.vector = [val - object for val in self.vector]
+        print(self.vector)
 
     def __truediv__(self, object) -> None:
         """Division"""
         if object == 0:
             raise ZeroDivisionError("Cannot divide by 0")
-        result = [val // object for val in self.vector]
-        print(result)
+        self.vector = [val // object for val in self.vector]
+        print(self.vector)

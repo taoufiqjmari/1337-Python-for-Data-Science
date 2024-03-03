@@ -2,7 +2,10 @@ from S1E7 import Baratheon, Lannister
 
 
 class King(Baratheon, Lannister):
-    """Kind diamond class"""
+    """King diamond class"""
+    def __init__(self, first_name, is_alive=True):
+        """Diamond class constructor"""
+        super().__init__(first_name, is_alive)
 
     def get_hairs(self):
         """hairs getter"""
