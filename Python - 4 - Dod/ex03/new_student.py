@@ -15,14 +15,14 @@ class Student:
     """
     A dataclass of a student
     """
-    name: str
-    surname: str
-    active: int = field(default=True)
+    name: str = field(init=True)
+    surname: str = field(init=True)
+    active: bool = field(default=True)
     login: str = field(init=False)
-    random_id: str = field(init=False, default=generate_id())
+    id: str = field(init=False, default=generate_id())
 
     def __post_init__(self):
         """
         To set login based on name and surname
         """
-        self.login = f"{self.name}_{self.surname}"
+        self.login = f"{self.name[0]}{self.surname}"
